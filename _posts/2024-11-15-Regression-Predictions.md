@@ -103,9 +103,9 @@ import pandas as pd
 import pickle
 
 # import required data tables
-loyalty_scores = ...
-customer_details = ...
-transactions = ...
+loyalty_scores = pd.read_excel("grocery_database.xlsx", sheet_name="loyalty_scores")
+customer_details = pd.read_excel("grocery_database.xlsx", sheet_name="customer_details")
+transactions = pd.read_excel("grocery_database.xlsx", sheet_name="transactions")
 
 # merge loyalty score data and customer details data, at customer level
 data_for_regression = pd.merge(customer_details, loyalty_scores, how = "left", on = "customer_id")
@@ -146,8 +146,8 @@ After this data pre-processing in Python, we have a dataset for modelling that c
 
 | **Variable Name** | **Variable Type** | **Description** |
 |---|---|---|
-| loyalty_score | Dependent | The % of total grocery spend that each customer allocates to ABC Grocery vs. competitors |
-| distance_from_store | Independent | "The distance in miles from the customers home address, and the store" |
+| loyalty_score | Dependent | The % of total grocery spend that each customer allocates to ABC Grocery vs competitors |
+| distance_from_store | Independent | The distance in miles from the customers home address, and the store |
 | gender | Independent | The gender provided by the customer |
 | credit_score | Independent | The customers most recent credit score |
 | total_sales | Independent | Total spend by the customer in ABC Grocery within the latest 6 months |
@@ -222,7 +222,7 @@ For Linear Regression we have certain data preprocessing steps that need to be a
 <br>
 ##### Missing Values
 
-The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows
+The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows:
 
 ```python
 
@@ -382,7 +382,7 @@ X_test = X_test.loc[:, feature_selector.get_support()]
 ```
 
 <br>
-The below code then produces a plot that visualises the cross-validated accuracy with each potential number of features
+The below code then produces a plot that visualises the cross-validated accuracy with each potential number of features:
 
 ```python
 
@@ -405,7 +405,7 @@ This creates the below plot, which shows us that the highest cross-validated acc
 <br>
 ### Model Training <a name="linreg-model-training"></a>
 
-Instantiating and training our Linear Regression model is done using the below code
+Instantiating and training our Linear Regression model is done using the below code:
 
 ```python
 
@@ -422,7 +422,7 @@ regressor.fit(X_train, y_train)
 
 ##### Predict On The Test Set
 
-To assess how well our model is predicting on new data - we use the trained model object (here called *regressor*) and ask it to predict the *loyalty_score* variable for the test set
+To assess how well our model is predicting on new data - we use the trained model object (here called *regressor*) and ask it to predict the *loyalty_score* variable for the test set.
 
 ```python
 
@@ -434,9 +434,9 @@ y_pred = regressor.predict(X_test)
 <br>
 ##### Calculate R-Squared
 
-R-Squared is a metric that shows the percentage of variance in our output variable *y* that is being explained by our input variable(s) *x*.  It is a value that ranges between 0 and 1, with a higher value showing a higher level of explained variance.  Another way of explaining this would be to say that, if we had an r-squared score of 0.8 it would suggest that 80% of the variation of our output variable is being explained by our input variables - and something else, or some other variables must account for the other 20%
+R-Squared is a metric that shows the percentage of variance in our output variable *y* that is being explained by our input variable(s) *x*.  It is a value that ranges between 0 and 1, with a higher value showing a higher level of explained variance.  Another way of explaining this would be to say that, if we had an r-squared score of 0.8 it would suggest that 80% of the variation of our output variable is being explained by our input variables - and something else, or some other variables must account for the other 20%.
 
-To calculate r-squared, we use the following code where we pass in our *predicted* outputs for the test set (y_pred), as well as the *actual* outputs for the test set (y_test)
+To calculate r-squared, we use the following code where we pass in our *predicted* outputs for the test set (y_pred), as well as the *actual* outputs for the test set (y_test):
 
 ```python
 
@@ -446,7 +446,7 @@ print(r_squared)
 
 ```
 
-The resulting r-squared score from this is **0.78**
+The resulting r-squared score from this is **0.78**.
 
 <br>
 ##### Calculate Cross Validated R-Squared
@@ -470,7 +470,7 @@ cv_scores.mean()
 
 ```
 
-The mean cross-validated r-squared score from this is **0.853**
+The mean cross-validated r-squared score from this is **0.853**.
 
 <br>
 ##### Calculate Adjusted R-Squared
@@ -664,7 +664,7 @@ regressor.fit(X_train, y_train)
 
 ##### Predict On The Test Set
 
-To assess how well our model is predicting on new data - we use the trained model object (here called *regressor*) and ask it to predict the *loyalty_score* variable for the test set
+To assess how well our model is predicting on new data - we use the trained model object (here called *regressor*) and ask it to predict the *loyalty_score* variable for the test set.
 
 ```python
 
@@ -676,7 +676,7 @@ y_pred = regressor.predict(X_test)
 <br>
 ##### Calculate R-Squared
 
-To calculate r-squared, we use the following code where we pass in our *predicted* outputs for the test set (y_pred), as well as the *actual* outputs for the test set (y_test)
+To calculate r-squared, we use the following code where we pass in our *predicted* outputs for the test set (y_pred), as well as the *actual* outputs for the test set (y_test):
 
 ```python
 
@@ -686,7 +686,7 @@ print(r_squared)
 
 ```
 
-The resulting r-squared score from this is **0.898**
+The resulting r-squared score from this is **0.898**.
 
 <br>
 ##### Calculate Cross Validated R-Squared
@@ -861,7 +861,7 @@ While Linear Regression is susceptible to the effects of outliers, and highly co
 <br>
 ##### Missing Values
 
-The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows
+The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows:
 
 ```python
 
@@ -948,7 +948,7 @@ regressor.fit(X_train, y_train)
 
 ##### Predict On The Test Set
 
-To assess how well our model is predicting on new data - we use the trained model object (here called *regressor*) and ask it to predict the *loyalty_score* variable for the test set
+To assess how well our model is predicting on new data - we use the trained model object (here called *regressor*) and ask it to predict the *loyalty_score* variable for the test set.
 
 ```python
 
@@ -975,7 +975,7 @@ The resulting r-squared score from this is **0.957** - higher than both Linear R
 <br>
 ##### Calculate Cross Validated R-Squared
 
-As we did when testing Linear Regression & our Decision Tree, we will again utilise Cross Validation (for more info on how this works, please refer to the Linear Regression section above)
+As we did when testing Linear Regression & our Decision Tree, we will again utilise Cross Validation (for more info on how this works, please refer to the Linear Regression section above):
 
 ```python
 
@@ -1019,7 +1019,7 @@ So, at a high level, in a Random Forest we can measure *importance* by asking *H
 
 If this decrease in performance, or accuracy, is large, then we’d deem that input variable to be quite important, and if we see only a small decrease in accuracy, then we’d conclude that the variable is of less importance.
 
-At a high level, there are two common ways to tackle this.  The first, often just called **Feature Importance** is where we find all nodes in the Decision Trees of the forest where a particular input variable is used to split the data and assess what the Mean Squared Error (for a Regression problem) was before the split was made, and compare this to the Mean Squared Error after the split was made.  We can take the *average* of these improvements across all Decision Trees in the Random Forest to get a score that tells us *how much better* we’re making the model by using that input variable.
+There are two common ways to tackle this.  The first, often just called **Feature Importance** is where we find all nodes in the Decision Trees of the forest where a particular input variable is used to split the data and assess what the Mean Squared Error (for a Regression problem) was before the split was made, and compare this to the Mean Squared Error after the split was made.  We can take the *average* of these improvements across all Decision Trees in the Random Forest to get a score that tells us *how much better* we’re making the model by using that input variable.
 
 If we do this for *each* of our input variables, we can compare these scores and understand which is adding the most value to the predictive power of the model!
 
