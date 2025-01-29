@@ -1130,11 +1130,10 @@ import pandas as pd
 import pickle
 
 # import customers for scoring
-to_be_scored = ...
-
+to_be_scored = pd.read_pickle('data/abc_regression_scoring.p')
 # import model and model objects
-regressor = ...
-one_hot_encoder = ...
+regressor = pickle.load(open('data/random_forest_regression_model.p','rb'))
+one_hot_encoder = pickle.load(open('data/random_forest_regression_ohe.p','rb'))
 
 # drop unused columns
 to_be_scored.drop(["customer_id"], axis = 1, inplace = True)
