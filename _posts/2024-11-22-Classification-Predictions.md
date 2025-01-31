@@ -99,7 +99,7 @@ Based upon these, the chosen the model is the Random Forest as it was a) the mos
 
 While predictive accuracy was relatively high - other modelling approaches could be tested to see if even more accuracy could be gained.
 
-From a data point of view, further variables could be collected, and further feature engineering could be undertaken to ensure that we have as much useful information available for predicting customer loyalty
+From a data point of view, further variables could be collected, and further feature engineering could be undertaken to ensure that we have as much useful information available for predicting customer loyalty.
 <br>
 <br>
 ___
@@ -112,7 +112,7 @@ The key variables hypothesised to predict this will come from the client databas
 
 We aggregated up customer data from the 3 months prior to the last campaign.
 
-After this data pre-processing in Python, we have a dataset for modelling that contains the following fields...
+After this data pre-processing in Python, we have a dataset for modelling that contains the following fields:
 <br>
 <br>
 
@@ -202,7 +202,7 @@ For Logistic Regression we have certain data preprocessing steps that need to be
 <br>
 ##### Missing Values
 
-The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows
+The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows.
 
 ```python
 
@@ -362,7 +362,7 @@ X_test = X_test.loc[:, feature_selector.get_support()]
 ```
 
 <br>
-The below code then produces a plot that visualises the cross-validated classification accuracy with each potential number of features
+The below code then produces a plot that visualises the cross-validated classification accuracy with each potential number of features:
 
 ```python
 
@@ -456,16 +456,16 @@ Classification Accuracy is a metric that tells us *of all predicted observations
 
 An example of this could be a rare disease. A model with a 98% Classification Accuracy on might appear like a fantastic result, but if our data contained 98% of patients *without* the disease, and 2% *with* the disease - then a 98% Classification Accuracy could be obtained simply by predicting that *no one* has the disease - which wouldn't be a great model in the real world.  Luckily, there are other metrics which can help us!
 
-In this example of the rare disease, we could define Classification Accuracy as *of all predicted patients, what proportion did we correctly classify as either having the disease, or not having the disease*
+In this example of the rare disease, we could define Classification Accuracy as *of all predicted patients, what proportion did we correctly classify as either having the disease, or not having the disease*.
 
 <br>
 **Precision & Recall**
 
-Precision is a metric that tells us *of all observations that were predicted as positive, how many actually were positive*
+Precision is a metric that tells us *of all observations that were predicted as positive, how many actually were positive*.
 
-Keeping with the rare disease example, Precision would tell us *of all patients we predicted to have the disease, how many actually did*
+Keeping with the rare disease example, Precision would tell us *of all patients we predicted to have the disease, how many actually did*.
 
-Recall is a metric that tells us *of all positive observations, how many did we predict as positive*
+Recall is a metric that tells us *of all positive observations, how many did we predict as positive*.
 
 Again, referring to the rare disease example, Recall would tell us *of all patients who actually had the disease, how many did we correctly predict*
 
@@ -634,7 +634,7 @@ While Logistic Regression is susceptible to the effects of outliers, and highly 
 <br>
 ##### Missing Values
 
-The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows
+The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows:
 
 ```python
 
@@ -895,7 +895,7 @@ We will again utlise the scikit-learn library within Python to model our data us
 
 Again, since we saved our modelling data as a pickle file, we import it.  We ensure we remove the id column, and we also ensure our data is shuffled.
 
-As this is the exact same process we ran for both Logistic Regression & the Decision Tree - our code also investigates the class balance of our dependent variable
+As this is the exact same process we ran for both Logistic Regression & the Decision Tree - our code also investigates the class balance of our dependent variable.
 
 ```python
 
@@ -1117,7 +1117,7 @@ At a high level, there are two common ways to tackle this.  The first, often jus
 
 If we do this for *each* of our input variables, we can compare these scores and understand which is adding the most value to the predictive power of the model!
 
-The other approach, often called **Permutation Importance** cleverly uses some data that has gone *unused* at when random samples are selected for each Decision Tree (this stage is called "bootstrap sampling" or "bootstrapping")
+The other approach, often called **Permutation Importance** cleverly uses some data that has gone *unused* at when random samples are selected for each Decision Tree (this stage is called "bootstrap sampling" or "bootstrapping").
 
 These observations that were not randomly selected for each Decision Tree are known as *Out of Bag* observations and these can be used for testing the accuracy of each particular Decision Tree.
 
@@ -1241,7 +1241,7 @@ For KNN, as it is a distance based algorithm, we have certain data preprocessing
 <br>
 ##### Missing Values
 
-The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows
+The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows:
 
 ```python
 
@@ -1275,7 +1275,7 @@ In this code section, just like we saw when applying Logistic Regression, we use
 <br>
 Again, based on this investigation, we see some *max* column values for several variables to be much higher than the *median* value.
 
-This is for columns *distance_from_store*, *total_sales*, and *total_items*
+This is for columns *distance_from_store*, *total_sales*, and *total_items*.
 
 For example, the median *distance_to_store* is 1.64 miles, but the maximum is over 400 miles!
 
@@ -1658,8 +1658,8 @@ ___
 <br>
 # Growth & Next Steps <a name="growth-next-steps"></a>
 
-While predictive accuracy was relatively high - other modelling approaches could be tested, especially those somewhat similar to Random Forest, for example XGBoost, LightGBM to see if even more accuracy could be gained.
+While predictive accuracy was relatively high - other modelling approaches could be tested to see if even more accuracy could be gained.
 
 We could even look to tune the hyperparameters of the Random Forest, notably regularisation parameters such as tree depth, as well as potentially training on a higher number of Decision Trees in the Random Forest.
 
-From a data point of view, further variables could be collected, and further feature engineering could be undertaken to ensure that we have as much useful information available for predicting customer loyalty
+From a data point of view, further variables could be collected, and further feature engineering could be undertaken to ensure that we have as much useful information available for predicting customer loyalty.
