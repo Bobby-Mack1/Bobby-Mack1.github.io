@@ -65,7 +65,7 @@ It would be interesting to track this uplift over time and see if:
 * It flattens or returns to normal
 * We see any form of uplift pull-forward
 
-It would also be interesting to analyse what it is that is making up this uplift.  Are customers increasing their spend across the same categories - or are they buying into new categories
+It would also be interesting to analyse what it is that is making up this uplift.  Are customers increasing their spend across the same categories - or are they buying into new categories?
 
 <br>
 <br>
@@ -147,8 +147,8 @@ from causalimpact import CausalImpact
 import pandas as pd
 
 # import data tables
-transactions = ...
-campaign_data = ...
+transactions = pd.read_excel('data/grocery_database.xlsx', sheet_name='transactions')
+campaign_data = pd.read_excel('data/grocery_database.xlsx', sheet_name='campaign_data')
 
 # aggregate transaction data to customer, date level
 customer_daily_sales = transactions.groupby(["customer_id", "transaction_date"])["sales_cost"].sum().reset_index()
@@ -196,7 +196,7 @@ In the code below, we specify the start and end dates of the "pre-period" and th
 
 The algorithm will model the relationship between members & non-members in the pre-period - and it will use this to create the counterfactual, in other words what it believes would happen to the average daily spend for members in the post-period if no event was to have taken place!
 
-The difference between this counterfactual and the actual data in the post-period will be our "causal impact"
+The difference between this counterfactual and the actual data in the post-period will be our "causal impact".
 
 ```python
 
@@ -338,4 +338,4 @@ It would be interesting to track this uplift over time and see if:
 * It flattens or returns to normal
 * We see any form of uplift pull-forward
 
-It would also be interesting to analyse what it is that is making up this uplift.  Are customers increasing their spend across the same categories - or are they buying into new categories
+It would also be interesting to analyse what it is that is making up this uplift.  Are customers increasing their spend across the same categories - or are they buying into new categories?
