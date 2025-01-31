@@ -55,9 +55,9 @@ These metrics examine product relationships in different ways, so we utilise eac
 
 ### Results <a name="overview-results"></a>
 
-Interestingly, the strongest relationship existed between two products labelled as "gifts" - this is useful information for the category managers as they may want to ensure that gift products are available in one section of the aisle, rather than existing in their respective product types.
+Interestingly, the strongest relationship existed between two products labelled as "gifts" - this is useful information for the store managers as they may want to ensure that gift products are available in one section of the aisle, rather than existing in their respective product types.
 
-We also saw some strong relationships between French wines, and other French wines - which again is extremely useful for category managers who are thinking about the best way to lay out the products - having sections by country rather than necessarily by type might make it easier for customers to find what they are after.
+We also saw some strong relationships between French wines, and other French wines - which again is extremely useful for store managers who are thinking about the best way to lay out the products - having sections by country rather than necessarily by type might make it easier for customers to find what they are after.
 
 Another interesting association is between products labelled "small".  At this point, we don't know exactly what that means - but it is certainly something to take back to the client as they may be able to make more sense of it, and turn it into an actionable insight!
 
@@ -71,11 +71,11 @@ New Zealand & Australia are often grouped together, but in terms of wine this wo
 <br>
 ### Growth/Next Steps <a name="overview-growth"></a>
 
-As this is first & foremost an exploratory project, we will take back the results to the client Category Managers & discuss the results, our views on how these insights can be actioned best, and any considerations that need to be taken into account when interpreting.
+As this is first & foremost an exploratory project, we will take back the results to the client & discuss the results, our views on how these insights can be actioned best, and any considerations that need to be taken into account when interpreting.
 
 From there we will recommend applying this same logic to all other categories, as well as potentially across the full-product range.
 
-We will also propose the build of the "Keyword Search Engine" which will help Category Managers extract and utilise the insights held within the data.
+We will also propose the build of the "Keyword Search Engine" which will help our client extract and utilise the insights held within the data.
 
 <br>
 <br>
@@ -346,16 +346,16 @@ In the table below, we can see the ten highest product relationships, based upon
 | Small Sizes Wht Othr | Small Sizes White | 0.003 | 0.414 | 6.176 |
 
 <br>
-Interestingly, the strongest relationship exists between two products labelled as "gifts" - this is useful information for the category managers as they may want to ensure that gift products are available in one section of the aisle, rather than existing in their respective product types.
+Interestingly, the strongest relationship exists between two products labelled as "gifts" - this is useful information for the store managers as they may want to ensure that gift products are available in one section of the aisle, rather than existing in their respective product types.
 
-We also see some strong relationships between French wines, and other French wines - which again is extremely useful for category managers who are thinking about the best way to lay out the products - having sections by country rather than necessarily by type might make it easier for customers to find what they are after.
+We also see some strong relationships between French wines, and other French wines - which again is extremely useful for store managers who are thinking about the best way to lay out the products - having sections by country rather than necessarily by type might make it easier for customers to find what they are after.
 
 Another interesting association is between products labelled "small".  At this point, we don't know exactly what that means - but it is certainly something to take back to the client as they may be able to make more sense of it, and turn it into an actionable insight!
 
 <br>
 #### Search Tool For Category Managers
 
-With the data now stored as a DataFrame, we will also go back to the client with a proposal to build a simple "search" tool for Category Managers to use.
+With the data now stored as a DataFrame, we will also go back to the client with a proposal to build a simple "search" tool for them to use.
 
 An example of how this might work would be to test a hypothesis around New Zealand wines.
 
@@ -399,8 +399,8 @@ ___
 <br>
 # Growth & Next Steps <a name="growth-next-steps"></a>
 
-As this was first & foremost an exploratory project, we will take back the results to the client Category Managers & discuss the results, our views on how these insights can be actioned best, and any considerations that need to be taken into account when interpreting.
+As this was first & foremost an exploratory project, we will take back the results to the client store managers & discuss the results, our views on how these insights can be actioned best, and any considerations that need to be taken into account when interpreting.
 
 From there we will recommend applying this same logic to all other categories, as well as potentially across the full-product range.
 
-We will also propose the build of the "Keyword Search Engine" which will help Category Managers extract and utilise the insights held within the data.
+We will also propose the build of the "Keyword Search Engine" which will help the client extract and utilise the insights held within the data.
