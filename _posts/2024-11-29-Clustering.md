@@ -61,8 +61,6 @@ For *Cluster 1* we saw quite high proportions of spend being allocated to Fruit 
 
 Finally customers in *Cluster 2* spent significant portions within Dairy, Fruit & Vegetables, but very little in the Meat product area - so similarly, we would make an early hypothesis that these customers are more along the lines of those following a vegetarian diet.
 
-To help embed this segmentation into the business, we have proposed to call this the "You Are What You Eat" segmentation.
-
 <br>
 <br>
 ### Growth/Next Steps <a name="overview-growth"></a>
@@ -71,7 +69,6 @@ It would be interesting to run this clustering/segmentation at a lower level of 
 
 Here we've just focused on variables that are linked directly to sales - it could be interesting to also include customer metrics such as distance to store, gender etc to give a even more well-rounded customer segmentation.
 
-It would be useful to test other clustering approaches such as hierarchical clustering or DBSCAN to compare the results.
 <br>
 <br>
 
@@ -101,8 +98,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # import tables from database
-transactions = ...
-product_areas = ...
+transactions = pd.read_excel('data/grocery_database.xlsx', sheet_name='transactions')
+product_areas = pd.read_excel('data/grocery_database.xlsx', sheet_name='product_areas')
 
 # merge product_area_name on
 transactions = pd.merge(transactions, product_areas, how = "inner", on = "product_area_id")
@@ -226,7 +223,7 @@ data_for_clustering_scaled = pd.DataFrame(scale_norm.fit_transform(data_for_clus
 <br>
 ### Finding A Good Value For k <a name="kmeans-k-value"></a>
 
-At this point here, our data is ready to be fed into the k-means clustering algorithm.  Before that however, we want to understand what number of clusters we want the data split into.
+At this point here, our data is ready to be fed into the k-means clustering algorithm.  Before that however, we want to understand how many clusters we want the data split into.
 
 In the world of unsupervised learning, there is no *right or wrong* value for this - it really depends on the data you are dealing with, as well as the unique scenario you're utilising the algorithm for.  From our client, having a very high number of clusters might not be appropriate as it would be too hard for the business to understand the nuance of each in a way where they can apply the right strategies.
 
@@ -365,5 +362,3 @@ ___
 It would be interesting to run this clustering/segmentation at a lower level of product areas, so rather than just the four areas of Meat, Dairy, Fruit, Vegetables - clustering spend across the sub-categories *below* those categories.  This would mean we could create more specific clusters, and get an even more granular understanding of dietary preferences within the customer base.
 
 Here we've just focused on variables that are linked directly to sales - it could be interesting to also include customer metrics such as distance to store, gender etc to give a even more well-rounded customer segmentation.
-
-It would be useful to test other clustering approaches such as hierarchical clustering or DBSCAN to compare the results.
