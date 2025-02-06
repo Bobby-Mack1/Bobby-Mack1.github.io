@@ -119,7 +119,7 @@ All the hard work has been done, we just want to "transfer" those "learnings" to
 <br>
 #### Nuanced Application
 
-When using Transfer Learning for image classification tasks, we often import the architecture up to final Max Pooling layer, prior to flattening & the Dense Layers & Output Layer.  We use the frozen parameter values from the bottom of the network, and then get instead of the final Max Pooling layer
+When using Transfer Learning for image classification tasks, we often import the architecture up to final Max Pooling layer, prior to flattening & the Dense Layers & Output Layer.  We use the frozen parameter values from the bottom of the network, and then get instead of the final Max Pooling layer.
 
 With this approach, the final MaxPooling layer will be in the form of a number of pooled feature maps.  For our task here however, we don't want that. We instead want a *single set* of numbers to represent these features and thus we add in a **Global Average Pooling Layer** at the end of the VGG16 architecture meaning the output of the network will be a single array of numeric information rather than many arrays.
 
@@ -128,7 +128,7 @@ ___
 
 # Setting Up VGG16  <a name="vgg16-setup"></a>
 
-Keras makes the use of VGG16 very easy. We download the bottom of the VGG16 network (everything up to the Dense Layers) and then add a parameter to ensure that the final layer is not a Max Pooling Layer but instead a *Global Max Pooling Layer*
+Keras makes the use of VGG16 very easy. We download the bottom of the VGG16 network (everything up to the Dense Layers) and then add a parameter to ensure that the final layer is not a Max Pooling Layer but instead a *Global Max Pooling Layer*.
 
 In the code below, we:
 
